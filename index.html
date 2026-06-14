@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elitte Restorations & Services LTD</title>
+    <style>
+        /* --- BRAND PALETTE --- */
+        :root {
+            --slate-blue: #3b4b5c;
+            --dark-slate: #2c3a47;
+            --gold: #dfbd6c;
+            --charcoal: #1e293b;
+            --light-bg: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background-color: var(--slate-blue);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            height: 55px;
+            margin-right: 15px;
+        }
+
+        /* Unified Single Large Text Header */
+        .logo-text h1 {
+            color: #ffffff;
+            font-size: 26px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* --- SCREEN VISIBILITY TOGGLES --- */
+        .page-view {
+            display: block;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* --- HOME SCREEN SPECIFIC STYLES --- */
+        .hero {
+            background-color: var(--dark-slate);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero .tagline {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            color: #ffffff;
+            font-size: 42px;
+            font-weight: 800;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto 35px auto;
+        }
+
+        .cta-btn {
+            background-color: var(--gold);
+            color: var(--dark-slate);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .services {
+            padding: 80px 20px;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin: 5px 0 50px 0;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #ffffff;
+            width: 320px;
+            padding: 35px 25px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .card-icon { font-size: 36px; margin-bottom: 15px; }
+        .card h3 { font-size: 20px; color: #334155; margin-bottom: 10px; font-weight: 700; }
+        .card p { color: #64748b; font-size: 14px; }
+
+        /* --- DYNAMIC INTERNAL SPLIT-SCREEN SERVICE LAYOUT --- */
+        .split-container {
+            display: flex;
+            min-height: 80vh;
+            width: 100%;
+        }
+
+        /* 3/4 Width Main Details Pane */
+        .details-pane {
+            width: 75%;
+            padding: 60px 50px;
+            background-color: #ffffff;
+        }
+
+        .details-pane h2 {
+            font-size: 36px;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 15px;
+        }
+
+        .details-pane h3 {
+            font-size: 22px;
+            color: var(--slate-blue);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .service-list-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-list-item::before {
+            content: "▪";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-size: 18px;
+        }
+
+        /* 1/4 Width Portfolio Panel */
+        .portfolio-pane {
+            width: 25%;
+            background-color: var(--light-bg);
+            border-left: 1px solid #e2e8f0;
+            padding: 60px 25px;
+        }
+
+        .portfolio-pane h3 {
+            font-size: 22px;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .photo-placeholder-box {
+            background-color: #e2e8f0;
+            border: 2px dashed #cbd5e1;
+            border-radius: 6px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .photo-placeholder-box:hover {
+            background-color: #cbd5e1;
+            color: var(--charcoal);
+        }
+
+        /* --- STATIC GENERAL UI PARTS --- */
+        .trust-banner {
+            background-color: var(--slate-blue);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .trust-banner h3 { color: #ffffff; font-size: 22px; }
+        .trust-banner p { color: var(--gold); font-size: 14px; margin-top: 5px; }
+
+        .contact-container { display: flex; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; padding: 80px 20px; gap: 50px; }
+        .contact-info { flex: 1; min-width: 300px; }
+        .contact-info h2 { font-size: 36px; font-weight: 800; color: var(--charcoal); margin-bottom: 20px; }
+        .form-box { flex: 1; min-width: 300px; background-color: var(--charcoal); padding: 40px; border-radius: 8px; }
+        .form-box input, .form-box textarea { width: 100%; background-color: #334155; color: #ffffff; border: 1px solid #475569; padding: 14px; border-radius: 4px; margin-bottom: 15px; }
+        .submit-btn { width: 100%; background-color: var(--gold); color: var(--charcoal); border: none; padding: 16px; font-weight: 700; cursor: pointer; border-radius: 4px; }
+
+        footer { background-color: #0f172a; padding: 30px 20px; text-align: center; }
+        footer p { color: #94a3b8; font-size: 13px; }
+        footer span { color: var(--gold); display: block; margin-top: 5px; font-style: italic; }
+
+        @media (max-width: 900px) {
+            .split-container { flex-direction: column; }
+            .details-pane { width: 100%; }
+            .portfolio-pane { width: 100%; border-left: none; border-top: 1px solid #e2e8f0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-area" onclick="showPage('home')">
+            <img src="logo removede background.png" alt="Elitte Restorations Logo" class="logo-img">
+            <div class="logo-text">
+                <h1>Elitte Restorations & Services LTD</h1>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a onclick="showPage('home')">Home</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div id="home-page" class="page-view">
+        <header class="hero">
+            <p class="tagline">Quality is our speciality</p>
+            <h2>Premium Commercial & Domestic Structural Restorations</h2>
+            <p>Delivering high-end structural remediation, damage recovery, and complete property restoration services across the UK with unrivalled precision.</p>
+            <a href="#contact" class="cta-btn">Request a Consultation</a>
+        </header>
+
+        <section class="services" id="services">
+            <p class="section-overline">What We Do</p>
+            <h2 class="section-title">Our Specialist Services</h2>
+            <div class="services-grid">
+                
+                <div class="card" onclick="showPage('commercial')">
+                    <div class="card-icon">🏢</div>
+                    <h3>Commercial Restoration</h3>
+                    <p>Full-scale structural recovery for office complexes, residential developments, and industrial sites. Click to view detailed layout.</p>
+                </div>
+
+                <div class="card" onclick="showPage('damage')">
+                    <div class="card-icon">💧</div>
+                    <h3>Damage Remediation</h3>
+                    <p>Expert fire, water, and environmental mitigation to stabilize and restore properties safely and swiftly. Click to view detailed layout.</p>
+                </div>
+
+                <div class="card" onclick="showPage('maintenance')">
+                    <div class="card-icon">🛠️</div>
+                    <h3>Property Maintenance</h3>
+                    <p>High-specification end-to-end building refurbishments executed by specialized in-house crafts people. Click to view detailed layout.</p>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+
+    <div id="commercial-page" class="page-view hidden">
+        <div class="split-container">
+            <div class="details-pane">
+                <h2>Commercial Restoration</h2>
+                <h3>What services we provide</h3>
+                <div class="service-list-item"><strong>Structural Reinforcement:</strong> Heavy framework correction and foundation stabilization for commercial property lots.</div>
+                <div class="service-list-item"><strong>Industrial Core Fit-Outs:</strong> Bringing corporate interior office properties and warehouse developments back to functional, modern specifications.</div>
+                <div class="service-list-item"><strong>Retail & Core Infrastructure Scaling:</strong> Phased high-capacity reconstruction ensuring continuous asset safety compliance.</div>
+            </div>
+            <div class="portfolio-pane">
+                <h3>Portfolio</h3>
+                <div class="photo-placeholder-box" onclick="alert('Photo gallery link template logic can be placed here.')">[ Image Slot / Project Location Link ]</div>
+                <div class="photo-placeholder-box" onclick="alert('Photo gallery link template logic can be placed here.')">[ Image Slot / Project Location Link ]</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="damage-page" class="page-view hidden">
+        <div class="split-container">
+            <div class="details-pane">
+                <h2>Damage Remediation</h2>
+                <h3>What services we provide</h3>
+                <div class="service-list-item"><strong>Water & Flood Mitigation:</strong> Deep structural drying, extraction, and clean safety clearing of damp elements.</div>
+                <div class="service-list-item"><strong>Fire Recovery Operations:</strong> Soot extraction, chemical surface neutralization, and total smoke odor removal protocols.</div>
+                <div class="service-list-item"><strong>Environmental Containment:</strong> Secure decontamination procedures protecting properties against toxic mold growth.</div>
+            </div>
+            <div class="portfolio-pane">
+                <h3>Portfolio</h3>
+                <div class="photo-placeholder-box" onclick="alert('Photo gallery link template logic can be placed here.')">[ Image Slot / Project Location Link ]</div>
+                <div class="photo-placeholder-box" onclick="alert('Photo gallery link template logic can be placed here.')">[ Image Slot / Project Location Link ]</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="maintenance-page" class="page-view hidden">
+        <div class="split-container">
+            <div class="details-pane">
+                <h2>Property Maintenance</h2>
+                <h3>What services we provide</h3>
+                <div class="service-list-item"><strong>Asset Planned Management:</strong> Scheduled structural compliance audits and minor continuous asset repairs.</div>
+                <div class="service-list-item"><strong>Premium Finish Carpentry & Building:</strong> Dedicated interior installations completed by highly skilled engineering personnel.</div>
+                <div class="service-list-item"><strong>Exterior Building Envelope Care:</strong> Brickwork repointing, high-grade roofing corrections, and localized water seal operations.</div>
+            </div>
+            <div class="portfolio-pane">
+                <h3>Portfolio</h3>
+                <div class="photo-placeholder-box" onclick="alert('Photo gallery link template logic can be placed here.')">[ Image Slot / Project Location Link ]</div>
+                <div class="photo-placeholder-box" onclick="alert('Photo gallery link template logic can be placed here.')">[ Image Slot / Project Location Link ]</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="trust-banner">
+        <h3>Fully Certified & Compliance Driven</h3>
+        <p>Working in strict accordance with national building regulations and structural safety standards.</p>
+    </div>
+
+    <section class="contact-container" id="contact">
+        <div class="contact-info">
+            <h2>Discuss Your Project</h2>
+            <p class="body-text">We are passionate about structural integrity. If you would like to speak to our project estimators directly, reach out via the channels below.</p>
+            <p><strong>📞 0330 094 9099</strong></p><br>
+            <p><strong>✉️ hello@elitterestorations.com</strong></p>
+        </div>
+        <div class="form-box">
+            <h3>Submit an Inquiry</h3>
+            <form onsubmit="event.preventDefault(); alert('Inquiry received! Our dispatch team will review your details.'); this.reset();">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea placeholder="Project Details & Requirements..." required></textarea>
+                <button type="submit" class="submit-btn">Submit Project Details</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Elitte Restorations & Services LTD. All Rights Reserved.</p>
+        <span>Quality is our speciality.</span>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Find all page segments
+            const pages = ['home', 'commercial', 'damage', 'maintenance'];
+            
+            // Loop and hide everything except the one clicked
+            pages.forEach(p => {
+                const element = document.getElementById(`${p}-page`);
+                if (p === pageId) {
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
+            
+            // Instantly auto-scroll to the top smoothly when changing views
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
