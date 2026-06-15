@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elitte Restorations & Services LTD</title>
+    <style>
+        /* --- BRAND PALETTE --- */
+        :root {
+            --slate-blue: #3b4b5c;
+            --dark-slate: #2c3a47;
+            --gold: #dfbd6c;
+            --charcoal: #1e293b;
+            --light-bg: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background-color: var(--slate-blue);
+            padding: 15px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 3px solid var(--gold);
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 15px 40px;
+                text-align: left;
+            }
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            height: 50px;
+            margin-right: 12px;
+        }
+
+        .logo-text h1 {
+            color: #ffffff;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+
+        @media (min-width: 480px) {
+            .logo-text h1 { font-size: 24px; }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            cursor: pointer;
+            transition: color 0.2s;
+            padding: 5px 10px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* --- SCREEN VISIBILITY TOGGLES --- */
+        .page-view { display: block; }
+        .hidden { display: none !important; }
+
+        /* --- HERO BANNER --- */
+        .hero {
+            background-color: var(--dark-slate);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) { .hero { padding: 100px 20px; } }
+
+        .hero .tagline {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 800;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            line-height: 1.3;
+        }
+
+        @media (min-width: 768px) { .hero h2 { font-size: 42px; } }
+
+        .hero p {
+            color: #cbd5e1;
+            font-size: 15px;
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+        }
+
+        @media (min-width: 768px) { .hero p { font-size: 18px; } }
+
+        .cta-btn {
+            background-color: var(--gold);
+            color: var(--dark-slate);
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        /* --- SERVICES HOME SECTION --- */
+        .services {
+            padding: 60px 15px;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        @media (min-width: 768px) { .services { padding: 80px 20px; } }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin: 5px 0 35px 0;
+        }
+
+        @media (min-width: 768px) { .section-title { font-size: 32px; margin-bottom: 50px; } }
+
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 30px;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            width: 100%;
+            padding: 30px 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        @media (min-width: 768px) { .card { width: 320px; } }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+        }
+
+        .card-icon { font-size: 32px; margin-bottom: 12px; }
+        .card h3 { font-size: 19px; color: #334155; margin-bottom: 8px; font-weight: 700; }
+        .card p { color: #64748b; font-size: 14px; }
+
+        /* --- SPLIT LAYOUT --- */
+        .split-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        @media (min-width: 992px) {
+            .split-container {
+                flex-direction: row;
+                min-height: 75vh;
+            }
+        }
+
+        .details-pane {
+            width: 100%;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+
+        @media (min-width: 992px) {
+            .details-pane {
+                width: 75%;
+                padding: 60px 50px;
+            }
+        }
+
+        .details-pane h2 {
+            font-size: 28px;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 15px;
+            font-weight: 800;
+        }
+
+        @media (min-width: 768px) { .details-pane h2 { font-size: 36px; } }
+
+        .details-pane p.intro-text {
+            font-size: 15px;
+            color: #475569;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        @media (min-width: 768px) { .details-pane p.intro-text { font-size: 16px; } }
+
+        .details-pane h3 {
+            font-size: 20px;
+            color: var(--slate-blue);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-list-item {
+            margin-bottom: 12px;
+            padding-left: 22px;
+            position: relative;
+            font-size: 15px;
+            color: #334155;
+            word-wrap: break-word;
+        }
+
+        .service-list-item::before {
+            content: "▪";
+            color: var(--gold);
+            position: absolute;
+            left: 2px;
+            font-size: 16px;
+            top: -1px;
+        }
+
+        /* Interactive list modifications */
+        .service-list-item.interactive {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .service-list-item.interactive:hover {
+            color: var(--slate-blue);
+            font-weight: 600;
+        }
+
+        .service-list-item.interactive span.small-note {
+            font-size: 11px;
+            color: #94a3b8;
+            font-weight: 400;
+            margin-left: 5px;
+            display: inline-block;
+        }
+
+        .portfolio-pane {
+            width: 100%;
+            background-color: var(--light-bg);
+            border-top: 1px solid #e2e8f0;
+            padding: 40px 20px;
+        }
+
+        @media (min-width: 992px) {
+            .portfolio-pane {
+                width: 25%;
+                border-top: none;
+                border-left: 1px solid #e2e8f0;
+                padding: 60px 25px;
+            }
+        }
+
+        .portfolio-pane h3 {
+            font-size: 20px;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .photo-placeholder-box {
+            background-color: #e2e8f0;
+            border: 2px dashed #cbd5e1;
+            border-radius: 6px;
+            min-height: 130px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 20px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .photo-placeholder-box:hover {
+            background-color: #cbd5e1;
+            color: var(--charcoal);
+        }
+
+        /* --- LIGHTBOX GALLERY OVERLAY MODAL --- */
+        .gallery-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.95);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-modal-content {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            padding: 40px 0 20px 0;
+            margin: auto 0;
+        }
+
+        .gallery-title {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            padding: 0 10px;
+        }
+
+        .gallery-location {
+            color: var(--gold);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .gallery-grid {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .gallery-img-container {
+            flex: 1;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gallery-img-container img {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 65vh;
+            border-radius: 4px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .gallery-img-label {
+            color: #cbd5e1;
+            font-size: 13px;
+            margin-top: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .gallery-close {
+            position: absolute;
+            top: -15px;
+            right: 0;
+            background: var(--gold);
+            color: var(--charcoal);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-close {
+                top: -30px;
+            }
+        }
+
+        /* Project selection popup menu styles */
+        .project-selection-box {
+            background-color: var(--charcoal);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 25px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .project-selection-box h4 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .project-select-btn {
+            background: var(--slate-blue);
+            color: #ffffff;
+            border: 1px solid #475569;
+            padding: 14px;
+            width: 100%;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+        }
+
+        .project-select-btn:hover {
+            border-color: var(--gold);
+            background: var(--dark-slate);
+        }
+
+        /* --- STATIC CORE SITE ELEMENTS --- */
+        .trust-banner {
+            background-color: var(--slate-blue);
+            padding: 35px 20px;
+            text-align: center;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .trust-banner h3 { color: #ffffff; font-size: 19px; font-weight: 700; }
+        @media (min-width: 768px) { .trust-banner h3 { font-size: 22px; } }
+        .trust-banner p { color: var(--gold); font-size: 14px; margin-top: 5px; }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        @media (min-width: 900px) {
+            .contact-container {
+                flex-direction: row;
+                padding: 80px 20px;
+                gap: 50px;
+            }
+        }
+
+        .contact-info { flex: 1; }
+        .contact-info h2 { font-size: 28px; font-weight: 800; color: var(--charcoal); margin-bottom: 15px; }
+        @media (min-width: 768px) { .contact-info h2 { font-size: 36px; } }
+        .contact-info .body-text { color: #64748b; font-size: 15px; margin-bottom: 25px; }
+
+        .contact-detail {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--slate-blue);
+            margin-bottom: 10px;
+        }
+
+        .form-box {
+            flex: 1;
+            background-color: var(--charcoal);
+            padding: 30px 20px;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) { .form-box { padding: 40px; } }
+
+        .form-box h3 { color: #ffffff; font-size: 20px; margin-bottom: 20px; font-weight: 700; }
+        
+        .form-box input, .form-box textarea {
+            width: 100%;
+            background-color: #334155;
+            color: #ffffff;
+            border: 1px solid #475569;
+            padding: 14px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-box textarea { height: 120px; resize: none; }
+        .form-box input::placeholder, .form-box textarea::placeholder { color: #94a3b8; }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            border: none;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .submit-btn:hover { background-color: #ebd08c; }
+
+        footer { background-color: #0f172a; padding: 30px 20px; text-align: center; }
+        footer p { color: #94a3b8; font-size: 13px; }
+        footer span { color: var(--gold); display: block; margin-top: 5px; font-style: italic; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-area" onclick="showPage('home')">
+            <img src="logo.png" alt="Elitte Restorations Logo" class="logo-img">
+            <div class="logo-text">
+                <h1>Elitte Restorations & Services LTD</h1>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a onclick="showPage('home')">Home</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div id="home-page" class="page-view">
+        <header class="hero">
+            <p class="tagline">Quality is our speciality</p>
+            <h2>Professional Commercial & Residential Restoration Services</h2>
+            <p>We provide professional restoration, repair, and refinishing services for commercial and residential properties. Our experienced team specializes in restoring damaged, worn, and aged surfaces to their original appearance, helping clients maintain the highest standards of quality and presentation.</p>
+            <a href="#contact" class="cta-btn">Request a Consultation</a>
+        </header>
+
+        <section class="services" id="services">
+            <h2 class="section-title">Our Specialist Services</h2>
+            <div class="services-grid">
+                
+                <div class="card" onclick="showPage('commercial')">
+                    <div class="card-icon">🏢</div>
+                    <h3>Commercial French Polishing</h3>
+                    <p>Providing reliable, high-quality restoration services tailored to the needs of commercial clients across a wide range of sectors. Click to view full details.</p>
+                </div>
+
+                <div class="card" onclick="showPage('surface-damage')">
+                    <div class="card-icon">💎</div>
+                    <h3>Surface Damage Repair & Restoration Services</h3>
+                    <p>Professional seamless restoration for stone, glass, ceramics, and structural metals. Click to view full details.</p>
+                </div>
+
+                <div class="card" onclick="showPage('private-maintenance')">
+                    <div class="card-icon">🛠️</div>
+                    <h3>Private Property Maintenance & Surface Restoration</h3>
+                    <p>Professional maintenance and bespoke surface care designed for luxury and domestic properties. Click to view full details.</p>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+
+    <div id="commercial-page" class="page-view hidden">
+        <div class="split-container">
+            <div class="details-pane">
+                <h2>Commercial French Polishing Services</h2>
+                <p class="intro-text">
+                    We provide high-quality commercial French polishing and specialist wood finishing services for offices, hotels, restaurants, retail units, residential developments, and public buildings throughout London and the surrounding areas.
+                    <br><br>
+                    Our experienced craftsmen restore, repair, and refinish all types of timber surfaces, including doors, wall panels, staircases, handrails, reception desks, furniture, and bespoke joinery. Using traditional French polishing techniques and modern finishing systems, we deliver durable, high-end results that enhance and protect your woodwork.
+                </p>
+                
+                <h3>What services we provide</h3>
+                <div class="service-list-item">French polishing and wood restoration</div>
+                <div class="service-list-item">Scratch, dent, and impact repairs</div>
+                <div class="service-list-item">Water damage repairs</div>
+                <div class="service-list-item">Colour matching and blending</div>
+                <div class="service-list-item">Lacquered, satin, matt, and gloss finishes</div>
+                <div class="service-list-item">Staircase and handrail restoration</div>
+                <div class="service-list-item">Door and timber frame refinishing</div>
+                <div class="service-list-item">Furniture and bespoke joinery finishing</div>
+                <div class="service-list-item">Site spraying and protective coatings</div>
+
+                <h3>What We Do</h3>
+                <div class="service-list-item interactive" onclick="openProjectSelector()">Engineered Wood Flooring <span class="small-note">(Click to see photos)</span></div>
+                <div class="service-list-item interactive" onclick="openVinylDoorsSelector()">Wood Vinyl Doors <span class="small-note">(Click to see photos)</span></div>
+                <div class="service-list-item interactive" onclick="openWoodenWardrobesSelector()">Wooden Wardrobes <span class="small-note">(Click to see photos)</span></div>
+                <div class="service-list-item interactive" onclick="alert('Photos for Kitchens will be added here.')">Kitchens <span class="small-note">(Click to see photos)</span></div>
+
+                <h3>Why Choose Us?</h3>
+                <div class="service-list-item">Experienced and fully insured specialists</div>
+                <div class="service-list-item">High-quality workmanship and attention to detail</div>
+                <div class="service-list-item">Commercial and residential projects undertaken</div>
+                <div class="service-list-item">Flexible scheduling to minimise disruption</div>
+                <div class="service-list-item">Competitive pricing and reliable service</div>
+                <div class="service-list-item">Free site surveys and quotations</div>
+                
+                <p class="intro-text" style="margin-top:25px; font-weight: 600;">
+                    Whether you require restoration of heritage woodwork or finishing for a new commercial development, we deliver professional results to the highest standards. Contact us today for a free consultation and quotation.
+                </p>
+            </div>
+            <div class="portfolio-pane">
+                <h3>Portfolio – Our Projects</h3>
+                <div class="photo-placeholder-box" onclick="openProjectMango()">Project: MANGO<br><span style="font-size: 11px; opacity: 0.8;">Canary Wharf</span></div>
+                <div class="photo-placeholder-box" onclick="openProjectTheStore()">Project: The Store Hotel<br><span style="font-size: 11px; opacity: 0.8;">Oxford</span></div>
+                <div class="photo-placeholder-box" onclick="openProjectMangoCopenhagen()">Project: MANGO<br><span style="font-size: 11px; opacity: 0.8;">Copenhagen, Denmark</span></div>
+                <div class="photo-placeholder-box" onclick="openProjectMangoGlasgow()">Project: MANGO<br><span style="font-size: 11px; opacity: 0.8;">Glasgow</span></div>
+                <div class="photo-placeholder-box" onclick="openProjectNovaVictoria()">Project: Nova Victoria<br><span style="font-size: 11px; opacity: 0.8;">London</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="surface-damage-page" class="page-view hidden">
+        <div class="split-container">
+            <div class="details-pane">
+                <h2>Surface Damage Repair</h2>
+                <p class="intro-text">
+                    We provide professional damage repair and restoration services for a wide range of surfaces in residential, commercial, and high-end properties. Our skilled technicians carry out seamless repairs, restoring damaged areas to their original appearance while avoiding the cost and disruption of full replacement.
+                </p>
+                
+                <h3>What services we provide</h3>
+                <div class="service-list-item"><strong>Marble & Natural Stone</strong> – Chips, cracks, scratches, edge damage, blemishes, polishing, and colour matching.</div>
+                <div class="service-list-item"><strong>Glass</strong> – Scratch removal, surface restoration, and polishing for architectural and decorative glass.</div>
+                <div class="service-list-item"><strong>Tiles & Ceramics</strong> – Repairs to chipped, cracked, and damaged wall and floor tiles with expert colour matching.</div>
+                <div class="service-list-item"><strong>Stainless Steel</strong> – Scratch removal, dent repairs, polishing, and refinishing to restore the original finish.</div>
+                <div class="service-list-item"><strong>Wood & Timber</strong> – Repairs to doors, flooring, furniture, joinery, and architectural woodwork, including scratches, dents, burns, and impact damage.</div>
+                <div class="service-list-item"><strong>Plastic & Composite Surfaces</strong> – Restoration of damaged uPVC, laminates, acrylics, and other plastic surfaces.</div>
+                <div class="service-list-item"><strong>Metal Surfaces</strong> – Repairs to aluminium, steel, brass, bronze, and coated metals, including scratches, dents, and surface defects.</div>
+
+                <h3>Why Choose Our Repair Services?</h3>
+                <div class="service-list-item">Cost-effective alternative to replacement</div>
+                <div class="service-list-item">Colour and texture matching specialists</div>
+                <div class="service-list-item">Minimal disruption and downtime</div>
+                <div class="service-list-item">Suitable for residential, commercial, hospitality, and luxury developments</div>
+                <div class="service-list-item">High-quality, durable repairs</div>
+                <div class="service-list-item">Environmentally friendly restoration solutions</div>
+                
+                <p class="intro-text" style="margin-top:25px; font-weight: 600;">
+                    Our goal is to restore damaged surfaces to the highest possible standard, helping clients save time, reduce costs, and maintain the appearance and value of their property.
+                </p>
+            </div>
+            <div class="portfolio-pane">
+                <h3>Portfolio</h3>
+                <div class="photo-placeholder-box" onclick="alert('Gallery links to project imagery will be handled here.')">[ Image Slot / Project Location Link ]</div>
+                <div class="photo-placeholder-box" onclick="alert('Gallery links to project imagery will be handled here.')">[ Image Slot / Project Location Link ]</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="private-maintenance-page" class="page-view hidden">
+        <div class="split-container">
+            <div class="details-pane">
+                <h2>Private Property Maintenance</h2>
+                <p class="intro-text">
+                    Keep your property looking its best with our professional private property maintenance and surface restoration services. Drawing on the expertise of traditional French polishing and specialist repair techniques, we restore and maintain a wide range of surfaces without the need for costly replacements.
+                    <br><br>
+                    Whether your property has suffered accidental damage, wear and tear, scratches, chips, dents, marks, or fading, we deliver cost-effective solutions that restore surfaces to their original appearance. We work with homeowners, landlords, property managers, and luxury residences, providing reliable maintenance services that help preserve the value and appearance of your property while minimising disruption.
+                </p>
+                
+                <h3>What services we provide</h3>
+                <div class="service-list-item">Wood furniture, doors, flooring, staircases, and joinery refinishing</div>
+                <div class="service-list-item">Traditional French polishing and protective wood restoration</div>
+                <div class="service-list-item">Marble, stone, granite, and floor tile precision repairs</div>
+                <div class="service-list-item">Glass scratch removal and structural surface restoration</div>
+                <div class="service-list-item">Stainless steel and architectural metal surface repairs</div>
+                <div class="service-list-item">Laminate, UPVC, and custom plastic surface restoration</div>
+                <div class="service-list-item">Paint, premium veneer, and decorative finish structural repairs</div>
+                <div class="service-list-item">Advanced colour matching and invisible surface repairs</div>
+
+                <h3>Why Choose Us?</h3>
+                <div class="service-list-item">Spacer French polishing and restoration expertise</div>
+                <div class="service-list-item">Cost-effective alternative to complete replacement</div>
+                <div class="service-list-item">Highly skilled and fully equipped field technicians</div>
+                <div class="service-list-item">Professional texture/colour matching and custom finishing</div>
+                <div class="service-list-item">Fast, clean, and efficient on-site service layouts</div>
+                <div class="service-list-item">Optimized for premium residential and high-end luxury properties</div>
+
+                <h3>Premium Materials & Lasting Results</h3>
+                <p class="intro-text">
+                    We use only premium-quality materials, coatings, finishes, lacquers, and finishing products to ensure exceptional durability and a flawless finish. Our commitment to quality means every repair and restoration is completed to the highest standard, providing long-lasting protection and maintaining the appearance of your surfaces for years to come. 
+                    <br><br>
+                    By combining skilled craftsmanship with industry-leading materials, we deliver results that are both aesthetically pleasing and built to withstand everyday wear and tear. From minor touch-ups to complete restoration projects, we ensure exceptional results and long-lasting finishes for every property we maintain. Our attention to detail, superior workmanship, and use of premium materials guarantee a finish that enhances and protects your property for years to come.
+                </p>
+            </div>
+            <div class="portfolio-pane">
+                <h3>Portfolio</h3>
+                <div class="photo-placeholder-box" onclick="alert('Gallery links to project imagery will be handled here.')">[ Image Slot / Project Location Link ]</div>
+                <div class="photo-placeholder-box" onclick="alert('Gallery links to project imagery will be handled here.')">[ Image Slot / Project Location Link ]</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="trust-banner">
+        <h3>Fully Certified & Compliance Driven</h3>
+        <p>Working in strict accordance with national building regulations and safety standards.</p>
+    </div>
+
+    <section class="contact-container" id="contact">
+        <div class="contact-info">
+            <h2>Discuss Your Project</h2>
+            <p class="body-text">Contact us today to discuss your restoration requirements and discover how our professional services can restore and enhance your property to the highest standard.</p>
+            <p class="contact-detail">📞 07903781185</p>
+            <p class="contact-detail">✉️ elitte@elitterestorserv.co.uk</p>
+        </div>
+        <div class="form-box">
+            <h3>Submit an Inquiry</h3>
+            <form action="https://formspree.io/f/mbdeqylw" method="POST">
+                <input type="text" name="Client Name" placeholder="Your Name" required>
+                <input type="email" name="Email Address" placeholder="Email Address" required>
+                <input type="tel" name="Phone Number" placeholder="Phone Number" required>
+                <textarea name="Project Requirements" placeholder="Project Details & Requirements..." required></textarea>
+                <button type="submit" class="submit-btn">Submit Project Details</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Elitte Restorations & Services LTD. All Rights Reserved.</p>
+        <span>Quality is our speciality.</span>
+    </footer>
+
+    <div id="lightbox-overlay" class="gallery-modal hidden">
+        <div class="gallery-modal-content" id="lightbox-content-pane">
+            <button class="gallery-close" onclick="closeLightbox()">×</button>
+            
+            <div id="lightbox-gallery-view" class="">
+                <div class="gallery-title" id="lightbox-title">Project Title</div>
+                <div class="gallery-location" id="lightbox-location">Project Location</div>
+                <div class="gallery-grid">
+                    <div class="gallery-img-container">
+                        <img id="lightbox-img-before" src="" alt="Before Restoration">
+                        <div class="gallery-img-label">BEFORE REPAIR</div>
+                    </div>
+                    <div class="gallery-img-container">
+                        <img id="lightbox-img-after" src="" alt="After Restoration">
+                        <div class="gallery-img-label">AFTER RESTORATION</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="lightbox-selector-view" class="hidden" style="display: flex; justify-content: center;">
+                <div class="project-selection-box">
+                    <h4 id="selector-box-title">Select a Project Gallery:</h4>
+                    <div id="selector-buttons-container">
+                        </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            const pages = ['home', 'commercial', 'surface-damage', 'private-maintenance'];
+            pages.forEach(p => {
+                const element = document.getElementById(`${p}-page`);
+                if (p === pageId) {
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openProjectSelector() {
+            document.getElementById('lightbox-gallery-view').classList.add('hidden');
+            document.getElementById('lightbox-selector-view').classList.remove('hidden');
+            
+            document.getElementById('selector-box-title').innerText = "Select a Project Gallery:";
+            document.getElementById('selector-buttons-container').innerHTML = `
+                <button class="project-select-btn" onclick="openProjectMango()">
+                    <span>Project: MANGO</span> <span>Canary Wharf →</span>
+                </button>
+                <button class="project-select-btn" onclick="openProjectTheStore()">
+                    <span>Project: The Store Hotel</span> <span>Oxford →</span>
+                </button>
+                <button class="project-select-btn" onclick="openProjectMangoCopenhagen()">
+                    <span>Project: MANGO</span> <span>Copenhagen →</span>
+                </button>
+                <button class="project-select-btn" onclick="openProjectMangoGlasgow()">
+                    <span>Project: MANGO</span> <span>Glasgow →</span>
+                </button>
+                <button class="project-select-btn" onclick="openProjectNovaVictoria()">
+                    <span>Project: Nova Victoria</span> <span>London →</span>
+                </button>
+            `;
+            
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+        }
+
+        function openVinylDoorsSelector() {
+            document.getElementById('lightbox-gallery-view').classList.add('hidden');
+            document.getElementById('lightbox-selector-view').classList.remove('hidden');
+            
+            document.getElementById('selector-box-title').innerText = "Select Wood Vinyl Doors Gallery:";
+            document.getElementById('selector-buttons-container').innerHTML = `
+                <button class="project-select-btn" onclick="openProjectConstructionSite2022()">
+                    <span>Project: Construction Site 2022</span> <span>London →</span>
+                </button>
+                <button class="project-select-btn" onclick="openProjectConstructionSitePaddington()">
+                    <span>Project: Construction Site</span> <span>Paddington →</span>
+                </button>
+            `;
+            
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+        }
+
+        function openWoodenWardrobesSelector() {
+            document.getElementById('lightbox-gallery-view').classList.add('hidden');
+            document.getElementById('lightbox-selector-view').classList.remove('hidden');
+            
+            document.getElementById('selector-box-title').innerText = "Select Wooden Wardrobes Gallery:";
+            document.getElementById('selector-buttons-container').innerHTML = `
+                <button class="project-select-btn" onclick="openProjectWardrobesConstructionSite()">
+                    <span>Project: Construction Site</span> <span>London →</span>
+                </button>
+            `;
+            
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+        }
+
+        function openProjectMango() {
+            document.getElementById('lightbox-selector-view').classList.add('hidden');
+            document.getElementById('lightbox-gallery-view').classList.remove('hidden');
+            
+            document.getElementById('lightbox-title').innerText = "Project: MANGO";
+            document.getElementById('lightbox-location').innerText = "Canary Wharf";
+            
+            document.getElementById('lightbox-img-before').src = "Project MANGO Before.png";
+            document.getElementById('lightbox-img-after').src = "Project MANGO After.png";
+            
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+        }
+
+        function openProjectTheStore() {
+            document.getElementById('lightbox-selector-view').classList.add('hidden');
+            document.getElementById('lightbox-gallery-view').classList.remove('hidden');
+            
+            document.getElementById('lightbox-title').innerText = "Project: The Store Hotel";
+            document.getElementById('lightbox-location').innerText = "Oxford";
+            
+            document.getElementById('lightbox-img-before').src = "Project The Store Before.png";
+            document.getElementById('lightbox-img-after').src = "Project The Store After.png";
+            
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+        }
+
+        function openProjectMangoCopenhagen() {
+            document.getElementById('lightbox-selector-view').classList.add('hidden');
+            document.getElementById('lightbox-gallery-view').classList.remove('hidden');
+            
+            document.getElementById('lightbox-title').innerText = "Project: MANGO";
+            document.getElementById('lightbox-location').innerText = "Copenhagen, Denmark";
+            
+            document.getElementById('lightbox-img-before').src = "Project MANGO Copenhagen Before.png";
+            document.getElementById('lightbox-img-after').src = "Project MANGO Copenhagen After.png";
+            
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+        }
+
+        function openProjectMangoGlasgow() {
+            document.getElementById('lightbox-selector-view').classList.add('hidden');
+            document.getElementById('lightbox-gallery-view').classList.remove('hidden');
+            
+            document.getElementById('lightbox-title').innerText = "Project: MANGO";
+            document.getElementById('lightbox-location').innerText = "Glasgow";
+            
+            document.getElementById('lightbox-img-before').src = "Project MANGO Glasgow Before.png";
+            document.getElementById('lightbox-img-after').src = "Project MANGO Glasgow After.png";
+            
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+        }
+
+        function openProjectNovaVictoria() {
+            document.getElementById('lightbox-selector-view').classList.add('hidden');
+            document.getElementById('lightbox-gallery-view').classList.remove('hidden');
+            
+            document.getElementById('lightbox-title').innerText = "Project: Nova Victoria";
+            document.getElementById('lightbox-location').innerText = "London";
+            
+            document.getElementById('lightbox-img-before').src = "Project Nova Victoria Before.png";
+            document.getElementById('lightbox-img-after').src = "Project Nova Victoria After.png";
+            
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+        }
+
+        function openProjectConstructionSite2022() {
+            document.getElementById('lightbox-selector-view').classList.add('hidden');
+            document.getElementById('lightbox-gallery-view').classList.remove('hidden');
+            
+            document.getElementById('lightbox-title').innerText = "Project: Construction Site 2022";
+            document.getElementById('lightbox-location').innerText = "London";
+            
+            document.getElementById('lightbox-img-before').src = "Project 2022 London Before.png";
+            document.getElementById('lightbox-img-after').src = "Project 2022 London After.png";
+            
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+        }
+
+        function openProjectConstructionSitePaddington() {
+            document.getElementById('lightbox-selector-view').classList.add('hidden');
+            document.getElementById('lightbox-gallery-view').classList.remove('hidden');
+            
+            document.getElementById('lightbox-title').innerText = "Project: Construction Site";
+            document.getElementById('lightbox-location').innerText = "Paddington";
+            
+            document.getElementById('lightbox-img-before').src = "Project Paddington Before.png";
+            document.getElementById('lightbox-img-after').src = "Project Paddington After.png";
+            
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+        }
+
+        function openProjectWardrobesConstructionSite() {
+            document.getElementById('lightbox-selector-view').classList.add('hidden');
+            document.getElementById('lightbox-gallery-view').classList.remove('hidden');
+            
+            document.getElementById('lightbox-title').innerText = "Project: Construction Site";
+            document.getElementById('lightbox-location').innerText = "London";
+            
+            document.getElementById('lightbox-img-before').src = "Project Wooden Wardrobes Before.png";
+            document.getElementById('lightbox-img-after').src = "Project Wooden Wardrobes After.png";
+            
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-overlay').classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
